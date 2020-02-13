@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+        
+        <ui:composition template="./mainTemplate.xhtml">
+
+            <ui:define name="head">
+                <title>#{msg['page.main.template.titleshort']} - #{msg['page.register.form.label.account.details']}</title>
+            </ui:define>
+
+            <ui:define name="content">
+
+                <h:form id="MyAccountShowForm">
+
+                    <p:panel header="#{msg['page.register.form.label.account.details']}"
+                             style="height: max-content; margin-top: 100px"  styleClass="mainPanel">
+
+                        <p:messages  globalOnly="true" closable="true"/> 
+                        <p:messages id="success" for="success" styleClass="messages"/>
+
+                        <p:panelGrid columns="2" styleClass="headerGrid" style="margin: auto; margin-top: 20px; ">
+
+                            <p:outputLabel value="#{msg['page.register.form.label.login']}" />
+                            <p:inputText id="login" maxlength="50" required="true" disabled="true"
+                                         value="${MyAccountShowPageBean.accountDTO.login}" style="opacity: 0.7" /> 
+
+
+
+                            <p:outputLabel value="#{msg['page.register.form.label.name']}" />
+                            <p:inputText id="name" maxlength="100" required="true" disabled="true" 
+                                         value="${MyAccountShowPageBean.accountDTO.name}" style="opacity: 0.7"/> 
+
+                            <p:outputLabel value="#{msg['page.register.form.label.surname']}" />
+                            <p:inputText id="surname" maxlength="200" required="true" disabled="true"
+                                         value="${MyAccountShowPageBean.accountDTO.surname}" style="opacity: 0.7"/> 
+
+                            <p:outputLabel value="#{msg['page.register.form.label.phone']}"  />
+                            <p:inputText id="phone" maxlength="100" required="true" disabled="true" 
+                                         value="${MyAccountShowPageBean.accountDTO.phone}" style="opacity: 0.7"/> 
+                        </p:panelGrid>
+
+                        <br>
+                            <p:commandButton value="#{msg['page.action.edit']}" ajax="false" action="myAccountEdit.xhtml" />
+                            <p:commandButton value="#{msg['page.action.cancel']}"  action="mainPage.xhtml" 
+                                             immediate="true" style="margin-left: 10px" />
+                        </br>
+                    </p:panel>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>

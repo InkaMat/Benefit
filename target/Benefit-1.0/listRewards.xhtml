@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <ui:composition template="./mainTemplate.xhtml">
+
+            <ui:define name="head">
+                <title>#{msg['page.main.template.titleshort']} - #{msg['page.reward.label.title']}</title>
+            </ui:define>
+
+            <ui:define name="content">
+
+                <h:form id="ListRewardsForm">
+
+                    <p:panel header="#{msg['page.reward.label.title']}" style="height: max-content"  styleClass="listPanel">
+
+                        <p:dataTable  var="row" id="ListRewardsTable" value="${listRewardsPageBean.dataModelRewards}" 
+                                      scrollable="true" scrollHeight="450" frozenRows="0" styleClass="table" 
+                                      emptyMessage="#{msg['general.empty.message.rewardslist']}">
+
+                            <p:column id="rewardName" style="width: 150px">
+                                <f:facet name="header">${msg['page.reward.label.rewardname']}</f:facet>
+                                <h:outputText value="#{row.rewardName}" />
+                            </p:column>
+
+                            <p:column id="activityType" style="width: 150px">
+                                <f:facet name="header">${msg['page.reward.label.activitytype']}</f:facet>
+                                <h:outputText value="#{row.activityType}" />
+                            </p:column>
+
+                            <p:column id="rewardFrequencyOfUse" style="width: 60px">
+                                <f:facet name="header">${msg['page.reward.label.frequencyofuse']}</f:facet>
+                                <h:outputText value="#{row.frequencyOfUse}" />
+                            </p:column>
+
+                            <p:column id="rewardPrice" style="width: 60px">
+                                <f:facet name="header">${msg['page.reward.label.price']}</f:facet>
+                                <h:outputText value="#{row.price}" />
+                            </p:column>
+
+                            <p:column id="actions" style="width: 230px">
+                                <f:facet  name="header">${msg['page.reward.header.label.actions']}</f:facet>
+                                <p:commandButton value="${msg['page.reward.list.action.edit']}" ajax="false" 
+                                                 action="${listRewardsPageBean.editRewardAction(row)}"/>
+
+                                <p:commandButton value="${msg['page.authorized.accounts.list.active']}" ajax="false" update="ListRewardsTable"
+                                                 action="#{listRewardsPageBean.activateRewardAction(row)}" disabled="#{row.active}" />
+
+                                <p:commandButton value="${msg['page.authorized.accounts.list.deactive']}" ajax="false" update="ListRewardsTable"
+                                                 action="#{listRewardsPageBean.deactivateRewardAction(row)}" disabled="#{not row.active}"/>&nbsp;
+
+                                <p:commandButton value="${msg['page.reward.list.action.delete']}" ajax="true" update="ListRewardsTable"
+                                                 action="${listRewardsPageBean.deleteSelectedRewardAction(row)}" >
+                                                 
+                                    <p:confirm header="${msg['page.action.title']}" 
+                                               message="${msg['page.action.text']}" icon="ui-icon-alert" />
+                                </p:commandButton>
+                                <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                                    <!--<p:ajax event=""-->
+                                    <p:commandButton value="${msg['page.action.yes']}" style="margin-left: 35px" type="button"  styleClass="ui-confirmdialog-yes" />
+                                    <p:commandButton value="${msg['page.action.no']}" type="button" styleClass="ui-confirmdialog-no" />
+
+                                </p:confirmDialog>
+
+                        
+                        </p:column>
+                        </p:dataTable>
+
+                        <p:commandButton value="#{msg['page.reward.label.tothelistallorders']}"  action="listAllOrders.xhtml" 
+                                         immediate="true" style="margin-top: 20px;  "/> 
+                       
+                        <p:commandButton value="#{msg['page.main.template.label.manager.addnewreward']}"  action="rewardAddNew.xhtml" 
+                                         immediate="true" style="margin-top: 20px; margin-left: 10px"/> 
+                        
+
+
+                        <p:commandButton value="#{msg['page.action.return.main']}"  action="mainPage.xhtml" 
+                                         immediate="true" style="margin-top: 20px;  margin-left: 10px"/>   
+
+                        <p:messages styleClass="messages" style="width: 30%"/>
+                    </p:panel>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>

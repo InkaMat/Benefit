@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+
+    <h:body>
+
+        <ui:composition template="./mainTemplate.xhtml">
+
+            <ui:define name="head">
+                <title>#{msg['page.main.template.titleshort']} - #{msg['page.main.template.label.employee.neworder']}</title>
+            </ui:define>
+
+            <ui:define name="content">
+
+                <h:form id="NewOrderForm" >     
+                    <p:panel header="#{msg['page.main.template.label.employee.neworder']}" 
+                             style="height: max-content; margin-top: 100px"  styleClass="mainPanel">
+                        
+                        <h:messages  globalOnly="true" styleClass="messagesGlobal2"/>                 
+                        <p:messages id="success" for="success"/>
+                        <h:message for="orderMonth" styleClass="messagesGlobal2"/>
+
+                        <p:panelGrid columns="2"  styleClass="headerGrid" style="margin: auto; margin-top: 20px">
+
+                            <p:outputLabel value="#{msg['page.reward.order.form.label.ordermonth']} 
+                                           #{msg['page.reward.order.form.label.orderpattern']}: *" />
+
+
+                            <p:datePicker id="orderMonth" value="#{newOrderPageBean.orderDTO.orderMonth}"
+                                          locale="#{utilsLanguageBean.locale}" maxlength="7" required="true" 
+                                          view="month"  pattern="yyyy-MM"  yearRange="2019:2021"  >
+                            </p:datePicker>
+
+
+                            <p:outputLabel value="#{msg['page.reward.order.form.label.choosereward']}: * " />
+                            <p:selectOneMenu id="chooseReward" value="${newOrderPageBean.rewardDTO.rewardName}" >
+                                <f:selectItem itemLabel="${msg['page.reward.order.form.label.choosereward']}:"  />
+                                <f:selectItems  value="${newOrderPageBean.listRewards}" var="rewards" 
+                                                itemValue="#{rewards.rewardName}" itemLabel="#{rewards}"  />
+                            </p:selectOneMenu>
+
+                        </p:panelGrid>
+
+
+                        <p:panelGrid>
+                            <p:commandButton value="#{msg['page.action.confirm']}" ajax="false" 
+                                             action="${newOrderPageBean.saveRewardOrderAction()}" />
+
+                            <p:commandButton value="#{msg['page.action.cancel']}" action="mainPage.xhtml" immediate="true"
+                                             style="margin-top: 20px; margin-left: 10px"/>&nbsp;
+                        </p:panelGrid>
+
+
+                        <p:outputLabel value="#{msg['page.info.text.required']}" style="margin-top: 30px"/>&nbsp;
+
+                        <p:outputLabel value="#{msg['page.reward.order.form.text.emptylist']}" 
+                                       style="margin-top: 10px; margin-left: 10px"/>
+                    </p:panel>
+
+                </h:form>
+
+            </ui:define>
+
+        </ui:composition>
+
+    </h:body>
+</html>
+
+

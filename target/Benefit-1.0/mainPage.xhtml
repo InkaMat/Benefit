@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+
+    <body>
+
+        <ui:composition template="./mainTemplate.xhtml">
+
+                <ui:define name="head">
+                    <title>#{msg['page.main.template.titleshort']} - #{msg['page.action.main']}</title>
+                </ui:define>
+            
+            <ui:define name="content" >
+                <h:form style="margin-top: 250px">
+                    <p:panel  style="height: max-content"  styleClass="mainPanel">
+                    <f:subview id="unauthenticatedView" rendered="#{empty request.remoteUser}">
+                        <h:outputText value="#{msg['page.main.page.content.textWelcome']}"/><br/>
+                        <h:outputText value="#{msg['page.main.page.content.textWelcome2']}" />
+                    </f:subview>
+     
+                    <f:subview id="adminView" rendered="#{request.isUserInRole('Administrator')}">
+                        <h:outputText value="#{msg['page.main.page.content.textWelcomeLeft']} #{mainApplicationPageBean.myLogin} #{msg['page.main.page.content.textWelcomeRight']}"/>
+                    </f:subview>
+
+                    <f:subview id="managerView" rendered="#{request.isUserInRole('Manager')}">
+                        <h:outputText value="#{msg['page.main.page.content.textWelcomeLeft']} #{mainApplicationPageBean.myLogin} #{msg['page.main.page.content.textWelcomeRight']}"/>
+                    </f:subview>
+
+                    <f:subview id="employeeView" rendered="#{request.isUserInRole('Employee')}">
+                        <h:outputText value="#{msg['page.main.page.content.textWelcomeLeft']} #{mainApplicationPageBean.myLogin} #{msg['page.main.page.content.textWelcomeRightEmployee']}"/>
+                    </f:subview>
+
+                    <f:subview id="authenticatedView" rendered="#{not empty request.remoteUser}">
+                        <br/>
+                        <h:outputText value="#{msg['page.main.page.content.textWelcome3']} #{mainApplicationPageBean.myAccessLevel()}"/>
+                    </f:subview>
+                    </p:panel>
+                <p:messages  style="width: 30%; margin: auto; text-align: center" />
+                </h:form>
+            </ui:define>
+
+
+        </ui:composition>
+
+    </body>
+</html>

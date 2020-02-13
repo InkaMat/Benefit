@@ -1,0 +1,387 @@
+
+.header{
+    margin-top: 5px;
+    margin-left: 5%;
+    width: 90%;
+    margin-bottom: 0px;
+
+}
+
+
+/* głowny kontent  */
+.content{
+    height:100%;
+    min-height: 1000px;
+    margin-left: 4%;
+    margin-top: 10px;
+    width:92%;
+    float: left;
+    align-content: center;
+}
+
+/* główny panel*/
+.mainPanel{
+    width: 750px;
+    text-align: center;
+    margin: auto;
+    /*background: transparent !important;*/
+    background: rgba(0,0,0,.15);
+    /*margin-top: 100px;*/ 
+}
+
+/* główny panel*/
+.mainPanelDark{
+    width: 600px;
+    height: 150px;
+    text-align: center;
+    justify-content: center;
+    margin: auto;
+    font-family: arial;
+    font-weight: 700;
+    font-size: 18px;
+    color: #666666;
+    background: transparent !important;
+    /*background: rgba(0,0,0,.15);*/
+    /*margin-top: 100px;*/ 
+}
+
+/* panel do list */
+.listPanel{
+    margin-top: 10px; 
+    width: 100%;
+    text-align: center;
+    margin: auto;
+    /*background: transparent !important;*/
+    background: rgba(0,0,0,.15);
+}
+
+/* styl do gridu we wnetrzach paneli */
+.headerGrid.ui-panelgrid>*>tr,
+.headerGrid.ui-panelgrid .ui-panelgrid-cell {
+    border: none;
+    text-align: left; 
+    background: transparent !important;
+}
+
+/* styl do obsługi wyjątków */
+.messages{
+    margin-top: 3px;
+    font-size: large;
+    color: #761c19;
+    font-style: normal;
+    /*justify-content: center;*/
+    /*text-align: center;*/ 
+    float: left;
+}
+
+/* styl do obsługi wyjątków - errors */
+.messagesGlobal{
+    /*padding: 5px;*/
+    color: #761c19;
+    border: 5px;
+    background-color: #F2DEDF;
+    justify-content: center;
+    text-align: center; 
+    /*border-color: #761c19;*/
+    /*font-size: medium;*/
+    /*font-style: normal;*/
+    /*margin-top: 3px;*/
+}
+/* styl do obsługi wyjątków - errors */
+.messagesGlobal2{
+    padding: 5px;
+    color: #761c19;
+    border: 5px;
+    background-color: #F2DEDF;
+    justify-content: center;
+    text-align: center; 
+    min-height: 40px; 
+    width:70%; 
+    margin: auto;
+    text-align: center
+    /*border-color: #761c19;*/
+    /*font-size: medium;*/
+    /*font-style: normal;*/
+    /*margin-top: 3px;*/
+}
+
+/* styl do obsługi wyjątków mały */
+.messagesSuccess{
+    border : 0px !important;
+    background: transparent !important;
+    width: 200px;
+    margin-top: 100px; 
+    text-align: center;
+    margin: auto;
+    /*border-spacing: 1px;*/
+    /*font-size: large;*/
+    /*background-color: #d7cfcf;*/
+}
+
+/* styl do tabel */
+.table{
+    text-align: left;
+    /*    float: left;
+        min-height: 800px;
+        margin-left: 4%;
+        margin-top: 10px;
+        width:92%;
+        align-content: center;*/
+}
+
+/* nakładka na zablokowane/nieedytowalne pole , transparentnosc */
+.ui-state-disabled, .ui-widget-content .ui-state-disabled, .ui-widget-header .ui-state-disabled{
+    opacity:.5;
+    color: #000;
+}
+
+
+/*.element {
+    position: fixed;
+    MAGIC HAPPENS HERE 
+    transform: translateZ(0);
+    -moz-transform: translatez(0);
+    -ms-transform: translatez(0);
+    -o-transform: translatez(0);
+    -webkit-transform: translateZ(0);
+    -webkit-font-smoothing: antialiased;
+}*/
+
+/*
+Wypelnienie flex
+.flex-fill { flex:1;   
+}
+
+Tekst po srodku
+.flex-fill > .text-center 
+{
+    flex-grow: 1;
+}
+
+Po srodku strony
+.centerCol{
+    align-items: center;
+}*/
+
+
+
+
+
+
+
+
+
+
+
+/*
+.menu{
+        margin-left: 4%;
+    width: 92%;
+}*/
+
+
+/*
+.content-area{
+    margin-left: 5%;
+    width: 90%;
+    margin-bottom: 10px;
+    padding: 0px;
+}*/
+
+/*.ui-datatable * {
+    border : 0px !important;
+}*/
+
+/*.center{
+        margin: 0 auto;
+        text-align: center;
+    display: flex;
+    justify-content: center;
+}*/
+
+
+/*
+.noFlickerBackground {
+    position:fixed;
+    top:0;
+    left:50%;
+    width:960px;
+    height:50px;
+    margin-left:-480px;
+    will-change:top;
+}*/
+
+
+/*div.cover {
+    background: url({{background.jpg}}) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    transition: background-image 1s ease-in-out;
+}*/
+
+
+/*.loginBox
+{
+
+    margin-top: 100px; 
+    text-align: center;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 350px;
+    height: 420px;
+    padding: 80px 40px;
+    box-sizing: border-box;
+    background: rgba(0,0,0,.25);
+}*/
+
+
+
+/*.footer{
+    margin-left: 6.5%;
+    width: 87%;
+    border: 1px solid black;;
+    border: none;
+    text-align: center;
+    margin-top: 10px;
+    padding: 1px;
+}*/
+
+
+
+
+/*.centerGrid{
+    margin: 0 auto;
+    text-align: left;
+    margin-top: 20px;
+    border-style: none;
+}*/
+
+
+
+
+/*
+.hasBackgroundImage{
+    border: none;
+    margin-top: 20px; 
+    height: 800px;
+    text-align: center;
+    margin: auto;
+    color: #ff267e;
+    background: transparent !important;
+}*/
+
+/*.hasBackgroundImage
+{
+    background: transparent url('backgr.jpg') no-repeat 1280px 800px;
+    background-size: 1.4em;
+}*/
+
+/*.cancel{
+    margin-top: 20px;
+    position:  absolute;
+    right: 20%;
+}*/
+
+
+/*.transparentBackground tr,
+.transparentBackground td { background: transparent !important; }*/
+
+
+/*calendar month
+.tableView table,  
+.tableView a.ui-datepicker-prev,
+.tableView a.ui-datepicker-next {
+    display: none;
+}*/
+
+
+/*
+.submit{
+
+}*/
+
+/*.sidebar{
+    width: 24%;
+    min-height: 300px;
+    border: 1px solid black;
+    padding: 10px;
+    box-sizing: border-box;
+    float: right;
+}*/
+
+
+
+
+/*
+.user
+{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: absolute;
+    top: calc(-100px/2);
+    left: calc(50% - 50px);
+}
+h2
+{
+    margin: 0;
+    padding: 0 0 20px;
+    color: #efed40;
+    text-align: center;
+}
+.loginBox p
+{
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    color: #fff;
+}
+.loginBox input
+{
+    width: 100%;
+    margin-bottom: 20px;
+}
+.loginBox input[type="text"],
+.loginBox input[type="password"]
+{
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+}
+::placeholder
+{
+    color: rgba(255,255,255,.5);
+}
+.loginBox input[type="submit"]
+{
+    border: none;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+    background: #ff267e;
+    cursor: pointer;
+    border-radius: 20px;
+}
+.loginBox input[type="submit"]:hover
+{
+    background: #efed40;
+    color: #262626;
+}
+.loginBox a
+{
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+}*/
